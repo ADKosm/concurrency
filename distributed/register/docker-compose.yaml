@@ -1,0 +1,15 @@
+version: "3.4"
+
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      APP_CODENAME: distributed-register
+      REPLICAS: 5
+    ports:
+      - 8080-8100:8080
+    labels:
+      - distributed-register
